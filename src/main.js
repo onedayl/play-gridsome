@@ -6,11 +6,12 @@ import { Carousel } from 'buefy'
 import 'buefy/dist/buefy.css'
 import DefaultLayout from '~/layouts/Default.vue'
 import BilingualTitle from '~/components/BilingualTitle.vue'
+import LabelTitle from '~/components/LabelTitle.vue'
 
 Vue.use(Carousel)
 
 export default function (Vue, { router, head, isClient }) {
-  // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('BilingualTitle', BilingualTitle)
+  Vue.component('LabelTitle', LabelTitle)
 }

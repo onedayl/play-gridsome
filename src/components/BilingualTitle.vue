@@ -22,7 +22,8 @@ export default {
 .bilingual-title {
   font-size: 32px;
   margin-top: 50px;
-  letter-spacing: 16px;
+  letter-spacing: 20px;
+  text-indent: 20px;
 }
 
 .slash {

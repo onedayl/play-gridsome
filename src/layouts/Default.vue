@@ -114,33 +114,34 @@ ul {
 }
 
 .nav-link a {
-  color: #333333;
+  color: #aa8665;
   text-decoration: none;
   margin-right: 20px;
   margin-top: 6px;
   padding-bottom: 6px;
   display: inline-block;
-}
-
-.nav-link a:hover {
-  color: #aa8664;
+  font-size: 14px;
 }
 
 .nav-link .active {
-  color: #aa8664;
   border-bottom: 2px solid #aa8664;
 }
 
 .content_wrapper {
   flex: 1 0 auto;
   padding-top: 59px;
-  padding-bottom: 120px;
+  padding-bottom: 40px;
 }
 
 .content {
   box-sizing: border-box;
   width: 100%;
   max-width: 1024px;
+}
+
+.qrcode {
+  width: 120px;
+  margin: 0 10px;
 }
 
 .footer_wrapper {
