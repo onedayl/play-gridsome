@@ -120,7 +120,6 @@ ul {
   margin-top: 6px;
   padding-bottom: 6px;
   display: inline-block;
-  font-size: 14px;
 }
 
 .nav-link .active {

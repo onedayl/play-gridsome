@@ -1,20 +1,22 @@
 <template>
   <Layout>
     <div class="map-wrapper">
-      <amap
-        :zoom="14"
-        :center="focusExpo.coordinate"
-      >
-        <amap-tool-bar />
-        <amap-marker
-          :position="focusExpo.coordinate"
-          :label="{
-            content: `<b>${focusExpo.address}</b><br>导航：${focusExpo.navigation}`,
-            direction: 'top',
-            offset: [0, -10],
-          }"
-        />
-      </amap>
+      <ClientOnly>
+        <amap
+          :zoom="14"
+          :center="focusExpo.coordinate"
+        >
+          <amap-tool-bar />
+          <amap-marker
+            :position="focusExpo.coordinate"
+            :label="{
+              content: `<b>${focusExpo.address}</b><br>导航：${focusExpo.navigation}`,
+              direction: 'top',
+              offset: [0, -10],
+            }"
+          />
+        </amap>
+      </ClientOnly>
     </div>
     <div style="margin-top: 20px; padding: 0 20px;">
       <div class="flex h-center">
@@ -39,19 +41,11 @@
 </template>
 
 <script>
-import Amap from '@amap/amap-vue/lib/components/Amap'
-import AmapMarker from '@amap/amap-vue/lib/components/overlay/Marker'
-import AmapToolBar from '@amap/amap-vue/lib/components/control/ToolBar'
 
 export default {
   name: 'Expo',
   metaInfo: {
     title: '展厅'
-  },
-  components: {
-    Amap,
-    AmapToolBar,
-    AmapMarker,
   },
   data () {
     return {
