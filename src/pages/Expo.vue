@@ -21,7 +21,7 @@
     <div style="margin-top: 20px; padding: 0 20px;">
       <div class="flex h-center">
         <b-dropdown aria-role="list">
-          <b-button slot="trigger" slot-scope="{ active }" expanded>
+          <b-button type="is-light" slot="trigger" slot-scope="{ active }" expanded>
               <span>{{ focusExpo.name }}</span>
               <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
           </b-button>
@@ -91,5 +91,15 @@ export default {
 }
 .dropdown, .dropdown-trigger {
   width: 192px;
+}
+.dropdown.is-mobile-modal > .dropdown-menu {
+  z-index: 200;
+}
+a.dropdown-item {
+  text-align: center;
+  padding: 8px 0;
+}
+.dropdown .background {
+  z-index: 199;
 }
 </style>
