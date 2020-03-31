@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@amap/amap-vue@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.npm.taobao.org/@amap/amap-vue/download/@amap/amap-vue-0.1.4.tgz#65a4b93253deb9153189758bcb5d21f844a07b88"
+  integrity sha1-ZaS5MlPeuRUxiXWLy10h+ESge4g=
+
 "@babel/code-frame@^7.5.5", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.npm.taobao.org/@babel/code-frame/download/@babel/code-frame-7.8.3.tgz?cache=0&sync_timestamp=1578953126105&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcode-frame%2Fdownload%2F%40babel%2Fcode-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -831,6 +836,11 @@
     hirestime "^3.2.1"
     log-update "^2.3.0"
     p-map "^1.2.0"
+
+"@mdi/font@5.0.45":
+  version "5.0.45"
+  resolved "https://registry.npm.taobao.org/@mdi/font/download/@mdi/font-5.0.45.tgz#8eda40c41dc7ee9e7a51dbe9191c5c38b8482422"
+  integrity sha1-jtpAxB3H7p56UdvpGRxcOLhIJCI=
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

@@ -7,6 +7,8 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@amap/amap-vue": "0.1.4",
+    "@mdi/font": "5.0.45",
     "buefy": "0.8.13",
     "gridsome": "^0.7.0"
   }

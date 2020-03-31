@@ -44,7 +44,7 @@ export default {
   data () {
     return {
       navLinks: [{
-        name: '自有展厅',
+        name: '城市展厅',
         path: '/expo/'
       }, {
         name: '定制案例',
