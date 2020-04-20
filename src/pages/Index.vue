@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div>
     <div class="carousel_wrapper">
       <b-carousel>
         <b-carousel-item v-for="(item, i) in 7" :key="i">
@@ -36,7 +36,7 @@
       <p style="margin: 20px 0 8px 0"><strong>北京良禽佳木家居有限公司</strong></p>
       <p style="font-size: 14px">13911521580（老虎） 13931647670（小强）</p>
     </div>
-  </Layout>
+  </div>
 </template>
 
 <script>

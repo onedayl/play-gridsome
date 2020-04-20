@@ -95,6 +95,10 @@ ul {
   justify-content: center;
 }
 
+.h-between {
+  justify-content: space-between;
+}
+
 .h-between-v-center {
   justify-content: space-between;
   align-items: center;

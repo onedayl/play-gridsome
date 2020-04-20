@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div style="height: 100%">
     <div class="map-wrapper">
       <ClientOnly>
         <amap
@@ -37,7 +37,7 @@
       </div>
     </div>
     <p style="margin-top: 20px; text-align: center">更多城市展厅陆续开放中……</p>
-  </Layout>
+  </div>
 </template>
 
 <script>
