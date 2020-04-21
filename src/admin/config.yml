@@ -1,0 +1,64 @@
+backend:
+  name: github
+  repo: onedayl/play-gridsome
+publish_mode: editorial_workflow
+media_folder: "static/uploads"
+public_folder: "/uploads"
+collections:
+  - name: "expo"
+    label: "展厅"
+    description: "展厅信息，包括名称、地址、经纬度和导航目的地"
+    folder: "src/admin/contents/expo"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - label: "名称"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "地址"
+        name: "address"
+        widget: "string"
+        required: true
+      - label: "经度"
+        name: "log"
+        widget: "number"
+        valueType: "float"
+        required: true
+      - label: "纬度"
+        name: "lat"
+        widget: "number"
+        valueType: "float"
+        required: true
+      - label: "导航"
+        name: "navigation"
+        widget: "string"
+        required: true
+  - name: "case"
+    label: "案例"
+    description: "案例信息，包括标题、作者、封面和跳转链接"
+    folder: "src/admin/contents/case"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - label: "标题"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "作者"
+        name: "author"
+        widget: "string"
+        required: true
+      - label: "封面"
+        name: "covers"
+        widget: "list"
+        field: {label: "图片", name: "image", widget: "image"}
+        required: true
+      - label: "链接"
+        name: "link"
+        widget: "string"
+        required: true
