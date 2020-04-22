@@ -4,11 +4,11 @@
       <ClientOnly>
         <amap
           :zoom="14"
-          :center="focusExpo.coordinate"
+          :center="focusExpo.coor"
         >
           <amap-tool-bar />
           <amap-marker
-            :position="focusExpo.coordinate"
+            :position="focusExpo.coor"
             :label="{
               content: `<b>${focusExpo.address}</b><br>导航：${focusExpo.navigation}`,
               direction: 'top',
@@ -40,6 +40,23 @@
   </div>
 </template>
 
+<page-query>
+query {
+  data: allExpo {
+    edges {
+      node {
+        id,
+        title,
+        address,
+        log,
+        lat,
+        navigation,
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 
 export default {
@@ -50,30 +67,20 @@ export default {
   data () {
     return {
       focusIndex: 0,
-      expos: [{
-        title: '北京展厅',
-        address: '北京市顺义区后俸伯北路4号院',
-        coordinate: [116.705984, 40.141721],
-        navigation: '良禽佳木北京展厅',
-      }, {
-        title: '广州展厅',
-        address: '广州市番禹区西坊大街264号西坊大院文创园Y1栋',
-        coordinate: [113.355841, 22.936533],
-        navigation: '良禽佳木广州展厅',
-      }, {
-        title: '天津工厂展厅',
-        address: '天津市宁河区(芦台经济开发区)进场路东侧',
-        coordinate: [117.750997, 39.359817],
-        navigation: '良禽佳木宁河工厂',
-      }, {
-        title: '南通工厂展厅',
-        address: '江苏省南通市如皋市益寿北路105号',
-        coordinate: [120.544402, 32.413667],
-        navigation: '良禽佳木南通工厂',
-      }]
     }
   },
   computed: {
+    expos () {
+      return this.$page.data.edges.map(d => {
+        return {
+          id: d.node.id,
+          title: d.node.title,
+          address: d.node.address,
+          coor: [d.node.log, d.node.lat],
+          navigation: d.node.navigation,
+        }
+      })
+    },
     focusExpo () {
       return this.expos[this.focusIndex]
     }
