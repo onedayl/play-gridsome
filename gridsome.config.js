@@ -10,6 +10,12 @@ module.exports = {
       path: 'src/admin/contents/expo/*.json',
     }
   }, {
+    use: '@gridsome/source-filesystem',
+    options: {
+      typeName: 'Case',
+      path: 'src/admin/contents/case/*.json',
+    }
+  }, {
     use: 'gridsome-plugin-netlify-cms',
     options: {
       htmlPath: 'src/admin/index.html',

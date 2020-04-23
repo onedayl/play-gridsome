@@ -1,19 +1,33 @@
 backend:
   name: github
   repo: onedayl/play-gridsome
+
 publish_mode: editorial_workflow
+
 media_folder: "static/uploads"
 public_folder: "/uploads"
+
 collections:
   - name: "expo"
     label: "展厅"
     description: "展厅信息，包括名称、地址、经纬度和导航目的地"
     folder: "src/admin/contents/expo"
     create: true
-    slug: "{{slug}}"
+    slug: "{{ctime}}"
+    summary: "{{title}}｜{{commit_date}}｜{{commit_author}}"
     extension: "json"
     format: "json"
+    editor:
+      preview: false
+    sortableFields: ["ctime"]
     fields:
+      - label: '创建时间'
+        name: "ctime"
+        required: true
+        widget: "datetime"
+        format: "x"
+        dateFormat: "YYYY-MM-DD"
+        timeFormat: "HH:mm:ss"
       - label: "名称"
         name: "title"
         widget: "string"
@@ -41,17 +55,37 @@ collections:
     description: "案例信息，包括标题、作者、封面和跳转链接"
     folder: "src/admin/contents/case"
     create: true
-    slug: "{{slug}}"
+    slug: "{{ctime}}"
+    summary: "{{title}}｜{{commit_date}}｜{{commit_author}}"
     extension: "json"
     format: "json"
+    editor:
+      preview: false
+    sortableFields: ["ctime"]
     fields:
+      - label: '创建时间'
+        name: "ctime"
+        required: true
+        widget: "datetime"
+        format: "x"
+        dateFormat: "YYYY-MM-DD"
+        timeFormat: "HH:mm:ss"
+      - label: "分类"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "经典全屋", value: "1" }
+          - { label: "儿童房", value: "2" }
+          - { label: "经典空间", value: "3" }
+        required: true
       - label: "标题"
         name: "title"
         widget: "string"
         required: true
       - label: "作者"
         name: "author"
-        widget: "string"
+        widget: "select"
+        options: ["良禽佳木", "良小禽", "木匠小强", "老虎"]
         required: true
       - label: "封面"
         name: "covers"
