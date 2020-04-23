@@ -3,18 +3,18 @@
     <article>
       <h5>{{ data.title }}</h5>
       <div class="flex v-center">
-        <img :src="data.avatar" class="avatar" />
+        <g-image src="~/assets/avatar.png" class="avatar" />
         <span class="author">{{ data.author }}</span>
       </div>
       <section class="cover-wrapper flex h-between">
         <template v-if="isMobile">
-          <img :src="data.covers[0].url" class="cover" />
+          <img :src="data.covers[0]" class="cover" />
         </template>
         <template v-else>
           <img
-            v-for="cover in data.covers"
-            :key="cover.id"
-            :src="cover.url"
+            v-for="(cover, index) in data.covers"
+            :key="index"
+            :src="cover"
             class="cover"
           />
         </template>
@@ -33,7 +33,7 @@ export default {
 </script>
 <style scoped>
 article {
-  margin-top: 12px;
+  margin-top: 24px;
   padding: 20px;
   box-shadow: 0 2px 50px 0 rgba(0,0,0,.1);
 }
@@ -52,7 +52,7 @@ h5 {
   margin-left: 12px;
 }
 .cover-wrapper {
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .cover {
   width: 100%;

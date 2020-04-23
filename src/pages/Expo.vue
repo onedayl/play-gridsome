@@ -42,7 +42,7 @@
 
 <page-query>
 query {
-  data: allExpo {
+  data: allExpo(sortBy: "ctime", order: ASC) {
     edges {
       node {
         id,
@@ -58,7 +58,6 @@ query {
 </page-query>
 
 <script>
-
 export default {
   name: 'Expo',
   metaInfo: {

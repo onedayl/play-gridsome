@@ -9,25 +9,52 @@
       >
         <b-tab-item label="经典全屋">
           <ArticleCard
-            v-for="article in articles"
-            :key="article.link"
-            :data="article"
+            v-for="item in caseOfHouse"
+            :key="item.node.id"
+            :data="item.node"
             :isMobile="isMobile"
           />
         </b-tab-item>
         <b-tab-item label="儿童房">
-          <p>儿童房</p>
+          <ArticleCard
+            v-for="item in caseOfChildrenRoom"
+            :key="item.node.id"
+            :data="item.node"
+            :isMobile="isMobile"
+          />
         </b-tab-item>
         <b-tab-item label="经典空间">
-          <p>经典空间</p>
+          <ArticleCard
+            v-for="item in caseOfSpace"
+            :key="item.node.id"
+            :data="item.node"
+            :isMobile="isMobile"
+          />
         </b-tab-item>
       </b-tabs>
     </div>
   </div>
 </template>
 
-<script>
+<page-query>
+query {
+	cases: allCase(sortBy: "ctime", order: DESC) {
+		edges {
+      node {
+        id
+        category
+				title
+        author
+        covers
+        link
+        ctime
+      }
+    }
+  }
+}
+</page-query>
 
+<script>
 export default {
   metaInfo: {
     title: '定制案例'
@@ -36,37 +63,17 @@ export default {
     return {
       activeTab: 0,
       isMobile: false,
-      articles: [{
-        title: '去他的佛系，就要为「简美」家具打Call',
-        avatar: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/logo_4309ba7.png',
-        author: '良小禽',
-        link: 'https://mp.weixin.qq.com/s/y5d9A4JvGgLmu-T4qZ5eQg',
-        covers: [{
-          id: '1',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_001_a93a929.jpg',
-        }, {
-          id: '2',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_002_b741709.jpg',
-        }, {
-          id: '3',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_003_72ead86.jpg',
-        }]
-      }, {
-        title: '技术宅一年精装一个家，开心的却是他的小伙伴们',
-        avatar: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/logo_4309ba7.png',
-        author: '老虎',
-        link: 'https://mp.weixin.qq.com/s?__biz=MzA4MzU0OTMxNA==&mid=2651786725&idx=1&sn=b12be210b9db2d06c700d8eded0dbb31&scene=19#wechat_redirect',
-        covers: [{
-          id: '1',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_004_674a452.png',
-        }, {
-          id: '2',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_005_1187fb9.png',
-        }, {
-          id: '3',
-          url: 'https://sz01.cdn.bjlqjm.biz/jiamu/official//official/img/custom_006_e17209d.png',
-        }]
-      }]
+    }
+  },
+  computed: {
+    caseOfHouse () {
+      return this.$page.cases.edges.filter(i => i.node.category == "1")
+    },
+    caseOfChildrenRoom () {
+      return this.$page.cases.edges.filter(i => i.node.category == "2")
+    },
+    caseOfSpace () {
+      return this.$page.cases.edges.filter(i => i.node.category == "3")
     }
   },
   mounted () {
