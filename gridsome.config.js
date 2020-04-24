@@ -6,6 +6,12 @@ module.exports = {
   plugins: [{
     use: '@gridsome/source-filesystem',
     options: {
+      typeName: 'Carousel',
+      path: 'src/admin/contents/carousel/*.json',
+    }
+  }, {
+    use: '@gridsome/source-filesystem',
+    options: {
       typeName: 'Expo',
       path: 'src/admin/contents/expo/*.json',
     }
@@ -18,7 +24,7 @@ module.exports = {
   }, {
     use: 'gridsome-plugin-netlify-cms',
     options: {
-      htmlPath: 'src/admin/index.html',
+      htmlTitle: '内容编辑系统'
     }
   }]
 }

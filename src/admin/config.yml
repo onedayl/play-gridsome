@@ -8,6 +8,37 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
+  - name: "carousel"
+    label: "轮播图"
+    description: "首页轮播图"
+    folder: "src/admin/contents/carousel"
+    create: true
+    slug: "{{ctime}}"
+    summary: "{{ctime}}｜{{commit_date}}｜{{commit_author}}"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    sortableFields: ["priority", "ctime"]
+    fields:
+      - label: '创建时间'
+        name: "ctime"
+        required: true
+        widget: "datetime"
+        format: "x"
+        dateFormat: "YYYY-MM-DD"
+        timeFormat: "HH:mm:ss"
+      - label: "权重"
+        name: "priority"
+        required: true
+        widget: "number"
+        default: 1
+        valueType: "int"
+        min: 1
+      - label: "图片"
+        name: "image"
+        widget: "image"
+        required: true
   - name: "expo"
     label: "展厅"
     description: "展厅信息，包括名称、地址、经纬度和导航目的地"

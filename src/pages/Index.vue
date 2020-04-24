@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="carousel_wrapper">
-      <b-carousel>
-        <b-carousel-item v-for="(item, i) in 7" :key="i">
-          <img :src="images[i]">
-        </b-carousel-item>
-      </b-carousel>
-    </div>
+    <g-image src="~/assets/showcase.png" />
     <BilingualTitle ch="关于我们" en="About Us" />
     <div style="margin-top: 40px; padding: 0 20px;">
       <p>良禽佳木由木匠世家创立，秉持“真材实料好工艺”的产品理念，自建工厂，用好原料、好工艺做禁得住用，耐得住看的现代实木家具，与人们一起成就梦想的家。</p>
@@ -21,7 +15,15 @@
       </ul>
     </div>
     <div style="margin-top: 40px">
-      <g-image src="~/assets/showcase.png" />
+      <LabelTitle title="实景拍摄" />
+      <b-carousel>
+        <b-carousel-item
+          v-for="item in carousel"
+          :key="item.node.id"
+        >
+          <g-image :src="item.node.url" />
+        </b-carousel-item>
+      </b-carousel>
     </div>
     <BilingualTitle ch="联系我们" en="Contact Us" />
     <div style="text-align: center; margin-top: 40px;">
@@ -39,22 +41,29 @@
   </div>
 </template>
 
+<page-query>
+query {
+  carousel: allCarousel(sort: [{by: "priority", order: DESC}, {by: "ctime"}]) {
+    edges {
+      node {
+        id
+        ctime
+        priority
+        url
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 export default {
   metaInfo: {
     title: '首页'
   },
-  data () {
-    return {
-      images: [
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img2_6ab7eeb.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img1_0f951b8.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img7_c8c515a.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img6_88ce4f2.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img5_58fe1f6.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img4_595549b.jpg',
-        'https://cdn.sz01.yunmicloud.biz/jiamu/official//official/img/img3_a26f91c.jpg',
-      ]
+  computed: {
+    carousel () {
+      return this.$page.carousel.edges
     }
   }
 }

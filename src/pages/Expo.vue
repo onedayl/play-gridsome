@@ -29,6 +29,7 @@
             v-for="(expo, index) in expos"
             :key="index"
             aria-role="listitem"
+            :mobile-modal="false"
             @click="changeFocus(index)"
           >
             {{ expo.title }}
