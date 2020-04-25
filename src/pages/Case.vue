@@ -77,9 +77,10 @@ export default {
     }
   },
   mounted () {
+    this.isMobile = window.screen.width < 768 ? true : false
     window.onresize = function (e) {
-      const screenWidth = e.target.screen.width;
-      this.isMobile = screenWidth < 768 ? true : false;
+      const screenWidth = e.target.screen.width
+      this.isMobile = screenWidth < 768 ? true : false
     }.bind(this)
   },
   methods: {
