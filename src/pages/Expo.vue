@@ -20,7 +20,7 @@
     </div>
     <div style="margin-top: 20px; padding: 0 20px;">
       <div class="flex h-center">
-        <b-dropdown aria-role="list">
+        <b-dropdown position="is-top-right">
           <b-button type="is-light" slot="trigger" slot-scope="{ active }" expanded>
               <span>{{ focusExpo.title }}</span>
               <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
@@ -29,7 +29,6 @@
             v-for="(expo, index) in expos"
             :key="index"
             aria-role="listitem"
-            :mobile-modal="false"
             @click="changeFocus(index)"
           >
             {{ expo.title }}
@@ -96,6 +95,10 @@ export default {
 .map-wrapper {
   height: 70%;
 }
+.dropdown-content {
+  max-height: 400px;
+  overflow-y: scroll;
+}
 .dropdown, .dropdown-trigger {
   width: 192px;
 }
@@ -106,7 +109,10 @@ a.dropdown-item {
   text-align: center;
   padding: 8px 0;
 }
-.dropdown .background {
+.background {
   z-index: 199;
+}
+.dropdown {
+  z-index: 1001;
 }
 </style>
