@@ -76,7 +76,7 @@ export default {
       return this.$page.cases.edges.filter(i => i.node.category == "3")
     }
   },
-  created () {
+  mounted () {
     window.onresize = function (e) {
       const screenWidth = e.target.screen.width;
       this.isMobile = screenWidth < 768 ? true : false;
