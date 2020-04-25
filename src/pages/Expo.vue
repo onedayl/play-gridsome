@@ -110,9 +110,9 @@ a.dropdown-item {
   padding: 8px 0;
 }
 .background {
-  z-index: 199;
+  z-index: 1001;
 }
 .dropdown {
-  z-index: 1001;
+  z-index: 1002;
 }
 </style>
