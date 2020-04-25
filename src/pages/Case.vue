@@ -62,7 +62,7 @@ export default {
   data () {
     return {
       activeTab: 0,
-      isMobile: false,
+      isMobile: true,
     }
   },
   computed: {
@@ -76,7 +76,7 @@ export default {
       return this.$page.cases.edges.filter(i => i.node.category == "3")
     }
   },
-  mounted () {
+  created () {
     window.onresize = function (e) {
       const screenWidth = e.target.screen.width;
       this.isMobile = screenWidth < 768 ? true : false;
@@ -93,7 +93,6 @@ export default {
 .tabs ul, .tabs li a {
   border: 0;
   margin: 0;
-  /* margin: 0 10px; */
 }
 .tabs li.is-active a {
   color: #aa8664;
