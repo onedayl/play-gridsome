@@ -5,7 +5,6 @@
         v-model="activeTab"
         position="is-centered"
         :animated="false"
-        @change="changeActiveTab"
       >
         <b-tab-item label="经典全屋">
           <ArticleCard
@@ -82,11 +81,6 @@ export default {
       const screenWidth = e.target.screen.width
       this.isMobile = screenWidth < 768 ? true : false
     }.bind(this)
-  },
-  methods: {
-    changeActiveTab (i) {
-      window.console.log(i)
-    }
   }
 }
 </script>

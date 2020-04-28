@@ -4,7 +4,9 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@amap/amap-vue": "0.1.4",
@@ -12,6 +14,7 @@
     "@gridsome/transformer-json": "0.2.1",
     "@mdi/font": "5.0.45",
     "buefy": "0.8.13",
+    "gh-pages": "2.2.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "1.0.9",
     "netlify-cms": "2.10.46"
