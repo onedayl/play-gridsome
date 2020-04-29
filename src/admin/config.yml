@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 
 media_folder: "static/uploads"
-public_folder: "./play-gridsome/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "carousel"
